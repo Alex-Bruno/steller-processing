@@ -34,6 +34,11 @@ while True:
         left, top, right, bottom = (
         int(detected.left()), int(detected.top()), int(detected.right()), int(detected.bottom()))
 
+        left = left - 2
+        top = top - 2
+        right = right + 2
+        bottom = bottom + 2
+
         roi = frame[top: bottom, left: right]
 
         if np.shape(roi) != ():
