@@ -34,10 +34,10 @@ while True:
         left, top, right, bottom = (
         int(detected.left()), int(detected.top()), int(detected.right()), int(detected.bottom()))
 
-        left = left - 2
-        top = top - 2
-        right = right + 2
-        bottom = bottom + 2
+        left = left - 3
+        top = top - 3
+        right = right + 3
+        bottom = bottom + 3
 
         roi = frame[top: bottom, left: right]
 
