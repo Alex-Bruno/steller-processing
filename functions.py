@@ -47,20 +47,11 @@ def recognition(img, value):
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    #img = cv2.bilateralFilter(img, 11, 75, 75) - 24/1
-    img = cv2.bilateralFilter(img, 11, 75, 75)# - 26/01
-    #img = cv2.bilateralFilter(img, 5, 9, 9) - 23
-    #img = cv2.bilateralFilter(img, 9, 15, 15)
+    img = cv2.bilateralFilter(img, 11, 75, 75)
 
     ret, img = cv2.threshold(img, value, 255, cv2.THRESH_BINARY)
 
-    #img = cv2.GaussianBlur(img, (5, 5), 0) - 23
-    #img = cv2.GaussianBlur(img, (15, 15), 45) - 20
-    #img = cv2.GaussianBlur(img, (11, 11), 31) - 23
-    #img = cv2.GaussianBlur(img, (5, 5), 5) - 23
-    #img = cv2.GaussianBlur(img, (11, 11), 75) - 24/1
-    img = cv2.GaussianBlur(img, (11, 11), 75)# - 26/01
-    #img = cv2.GaussianBlur(img, (5, 5), 75)
+    img = cv2.GaussianBlur(img, (11, 11), 75)
 
     cv2.imwrite('last_image_processed.jpg', img)
 
@@ -72,7 +63,5 @@ def recognition(img, value):
     if len(res) > 0:
         chars = removeCharsUnexpected(res)
         text = validatePlate(chars)
-        #if text:
-            #print('Result', chars, value, text)
 
     return text, img
