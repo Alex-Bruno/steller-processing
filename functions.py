@@ -53,11 +53,7 @@ def recognition(img, value):
 
     img = cv2.GaussianBlur(img, (11, 11), 75)
 
-    cv2.imwrite('last_image_processed.jpg', img)
-
-    image = Image.open('last_image_processed.jpg')
-
-    res = pytesseract.image_to_string(image, lang='pubg')
+    res = pytesseract.image_to_string(img, lang='pubg')
 
     text = ''
     if len(res) > 0:
