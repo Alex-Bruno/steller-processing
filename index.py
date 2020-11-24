@@ -58,7 +58,7 @@ while True:
     if valueText and len(valueText) > 3 and valueText != 'Not Detected':
         if int(diff) > 5 or lastText != valueText:
             url = getUrl() + '/save-access/'
-            requests.post(url, data=[('plate', str(valueText))])
+            requests.post(url, data=[('plate', str(valueText).strip())])
             lastText = valueText
             valueText = None
 
